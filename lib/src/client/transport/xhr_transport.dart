@@ -179,6 +179,7 @@ class XhrClientConnection implements ClientConnection {
       metadata['X-Grpc-Web'] = '1';
     }
 
+    path = path.startsWith('/') ? path.substring(1) : path;
     var requestUri = uri.resolve(path);
     if (callOptions is WebCallOptions &&
         callOptions.bypassCorsPreflight == true) {
